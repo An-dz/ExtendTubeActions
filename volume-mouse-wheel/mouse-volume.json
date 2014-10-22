@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "mouse volume": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.0\n */\n\n// Action trigger: page loaded\n\ndocument.addEventListener(\"mousewheel\", function (event) {\n\tif (!xtt.player.playerElement)\n\t\treturn\n\n    // Check if the mouse is on top of player\n    if (event.target == xtt.player.playerElement ||\n\t\txtt.player.playerElement.compareDocumentPosition(event.target) &\n\t\twindow.Node.DOCUMENT_POSITION_CONTAINED_BY) {\n        // Prevent page scroll\n        event.preventDefault()\n\n        //Check if the scrolling is up or down\n        if (0 < event.detail)\n            xtt.player.control(\"volume\", \"-5%\")\n        else\n            xtt.player.control(\"volume\", \"+5%\")\n    }\n}, false)\n",
+            "trigger": "load"
+        }
+    }
+}

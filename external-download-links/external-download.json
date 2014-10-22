@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "MP3-download-ytmp3pro": {
+            "enabled": true,
+            "exec": "/*\n * Add download options, this action is just an example\n * Use it to add your external websites\n *\n * By André Zanghelini (An_dz) under Public Domain\n */\n\n/**\n * @version 1.1\n */\n\n// Action trigger: document modified\n\nxtt.ui.add.downloadMenuItem({\n    text: \"First Option\",\n    tooltip: \"This is the first option\",\n    uri: \"http://www.github.com/#\" + xtt.video.getVideoURI(true),\n    clickListener: function (event) {\n        event.preventDefault()\n        window.open(this.href)\n    }\n})\n\nxtt.ui.add.downloadMenuItem({\n    text: \"Last Option\",\n    tooltip: \"This is the last option\",\n    uri: \"http://www.github.com/#\" + xtt.video.getVideoURI(true),\n    clickListener: function (event) {\n    	event.preventDefault()\n    	window.open(this.href)\n    }\n})\n",
+            "trigger": "doc modified"
+        }
+    }
+}

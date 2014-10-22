@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "search in new page": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.2\n */\n\n// Action trigger: DOM created\n\n/*! settings begin */\nvar buttonText = \"⤴\",\n/*! settings end */\n\n\tsearch = document.querySelector(\"#masthead-search\"),\n\tterm = document.querySelector(\"#masthead-search-term\"),\n\tbutton = document.querySelector(\"#search-btn\")\n\nif (search && term && button) {\n\tbutton = button.cloneNode(true)\n\tbutton.removeAttribute(\"id\")\n\tbutton.removeAttribute(\"onclick\")\n\tbutton.style.cssText = \"margin: 3px 0 0; float: right;\"\n\tbutton.classList.add(\"yt-uix-tooltip\")\n\tbutton.dataset.tooltipText = \"Search in new page\"\n\tbutton.addEventListener(\"click\", function (event) {\n\t\tif (term.value.trim())\n\t\t\twindow.open(\"http://www.youtube.com/results?search_query=\" + term.value)\n\t\telse\n\t\t\tterm.focus()\n\t}, false)\n\n\t// Replace this symbol if it’s missing from your default font.\n\tbutton.firstElementChild.textContent = buttonText\n\tbutton.firstElementChild.style.cssText = \"font-size: 2.2em; line-height: 1em;\"\n\n\tsearch.insertAdjacentElement(\"beforebegin\", button)\n}\n",
+            "trigger": "DOMContentLoaded"
+        }
+    }
+}

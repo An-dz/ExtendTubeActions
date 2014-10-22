@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "disable playlist links": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.1\n */\n\n// Action trigger: page loaded\n\nArray.prototype.forEach.call(document.querySelectorAll(\"a[href*=\\\"/watch\\\"]\"), function (link) {\n\tif (link.search)\n\t\tlink.search = link.search.replace(/&?(list|playnext|index)=[^&]+/g, \"\")\n})\n",
+            "trigger": "load"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "convert video links to html5": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.1\n */\n\n// Action trigger: page loaded\n\nArray.prototype.forEach.call(document.querySelectorAll(\"a[href*=\\\"/watch\\\"]\"), function (link) {\n\tif (/^\\/watch/.test(link.pathname) && !/html5=/.test(link.search))\n\t\tlink.search += \"&html5=True\"\n})\n",
+            "trigger": "load"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "html5 auto unsubscribe": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.1\n */\n\n// Action trigger: immediately\n\n/*! settings begin */\nvar // defines how log cookie should live\n\t// 864e5 * 365\t1 year\n\t// 864e5 * 182\t6 months\n\t// 864e5 * 30\t1 month\n\t// 6048e5\t\t1 week\n\t// 864e5\t\t1 day\n\t// 864e5/2\t\t12 hours\n\t// 36e5\t\t\t1 hour\n\tcookieLife = 864e5 * 15,\n/*! settings end */\n\n\tprefCookie = getCookie(\"PREF\")\n\nif (prefCookie && /f2=40000000/.test(prefCookie)) {\n\tdocument.cookie = \"PREF=\"\n\t\t\t\t\t+ prefCookie.replace(/f2=40000000/, \"\")\n\t\t\t\t\t+ \"; path=/; domain=youtube.com; expires=\"\n\t\t\t\t\t+ (new Date(Date.now() + cookieLife)).toUTCString()\n\n\twindow.location.replace(window.location.href)\n}\n\nfunction getCookie(name) {\n\tvar cookie = null\n\tdocument.cookie.split(\"; \").some(function (pair) {\n\t\tif (pair.substring(0, pair.indexOf(\"=\")) == name) {\n\t\t\tcookie = pair.substring(1 + pair.indexOf(\"=\"))\n\t\t\treturn true\n\t\t}\n\t})\n\treturn cookie\n}\n",
+            "trigger": "immediately"
+        }
+    }
+}

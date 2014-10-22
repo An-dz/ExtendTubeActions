@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "centre page content": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.0\n */\n\n// Action trigger: DOM created\n\nvar header = document.querySelector(\"#yt-masthead\"),\n\tfooter = document.querySelector(\"#footer\"),\n\tpage, guide\n\nif (header && footer) {\n\tdocument.body.classList.remove(\"exp-new-site-width\")\n\tdocument.body.classList.remove(\"site-left-aligned\")\n\n\tfooter = window.getComputedStyle(footer)\n\theader.style.setProperty(\"width\", footer.getPropertyValue(\"width\"))\n\n\tpage = document.querySelector(\"#page.watch\")\n\tif (page) {\n\t\tpage.style.setProperty(\"width\", footer.getPropertyValue(\"width\"))\n\t\tpage.style.setProperty(\"margin\", \"0 auto\")\n\t}\n\n\tguide = document.querySelector(\"#guide-main.collapsed .guide-module-toggle-label\")\n\tif (guide)\n\t\tguide.style.setProperty(\"display\", \"none\")\n}\n",
+            "trigger": "DOMContentLoaded"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "actions": {
+        "playlist autoplay killer": {
+            "enabled": true,
+            "exec": "/**\n * @version 1.1\n */\n\n// Action trigger: player ready\n\nvar autoplayButton = document.querySelector(\"#watch7-playlist-bar-autoplay-button.yt-uix-button-toggled\")\nif (autoplayButton) {\n\tvar click = document.createEvent(\"MouseEvent\")\n\tclick.initMouseEvent(\"click\", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 1, null)\n\tautoplayButton.dispatchEvent(click)\n}\n",
+            "trigger": "player ready"
+        }
+    }
+}
